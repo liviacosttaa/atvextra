@@ -1,3 +1,5 @@
+package AtvBicicleta;
+
 public class Bicicleta {
     private int velocidade;
     private int marcha;
