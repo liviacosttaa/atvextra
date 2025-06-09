@@ -21,3 +21,21 @@ public class Bicicleta {
             }
         }
     }
+    public void imprimirEstados() {
+        System.out.println("Velocidade: " + this.velocidade + " km/h");
+        System.out.println("Marcha: " + this.marcha);
+    }
+
+    public void mudarMarcha(int novaMarcha) {
+        if (novaMarcha >= 0) {
+            this.marcha = novaMarcha;
+        }
+    }
+    
+    public int getVelocidade() {
+        return velocidade;
+    }
+    public int getMarcha() {
+        return marcha;
+    }
+}
