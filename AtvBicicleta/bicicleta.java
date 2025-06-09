@@ -1,43 +1,38 @@
 package AtvBicicleta;
 
 public class Bicicleta {
-    private int velocidade;
-    private int marcha;
-   
-    public Bicicleta() {
-        this.velocidade = 0; 
-        this.marcha = 0;
-         }
+    public int velocidade;
+    public int marcha;
+    public int velocidadeMax;
 
-    public void acelerar(int incremento) {
-        if (incremento > 0) {
-            this.velocidade += incremento;
-        }
+public Bicicleta(int velocidadeMax){
+    this.velocidadeMax=velocidadeMax;
+}
+public void acelerar(int aumentar){
+    this.velocidade=Math.min(this.velocidade+ aumentar, this.velocidadeMax);
+    ajustarmarcha();
+}
+public void frear(int diminuir){
+    this.velocidade=Math.max(0, this.velocidade- diminuir);
+    ajustarmarcha();
+}
+public void ajustarmarcha(){
+    if(this.velocidade==0){
+        this.marcha=0;
     }
-    
-    public void frear(int decremento) {
-        if (decremento > 0) {
-            this.velocidade -= decremento;
-            if (this.velocidade < 0) {
-                this.velocidade = 0; 
-            }
-        }
+    else if(this.velocidade<5){
+        this.marcha=1;
     }
-    public void imprimirEstados() {
-        System.out.println("Velocidade: " + this.velocidade + " km/h");
-        System.out.println("Marcha: " + this.marcha);
+    else if(this.velocidade<10){
+        this.marcha=2;
     }
-
-    public void mudarMarcha(int novaMarcha) {
-        if (novaMarcha >= 0) {
-            this.marcha = novaMarcha;
-        }
-    }
-    
-    public int getVelocidade() {
-        return velocidade;
-    }
-    public int getMarcha() {
-        return marcha;
+    else{
+        this.marcha=3;
     }
 }
+public void imprimir(){
+    System.out.println("Velocidade:"+this.velocidade+"Marcha:"+this.marcha+"Velocidade Max:"+this.velocidadeMax);
+}
+}
+   
+    
